@@ -54,7 +54,7 @@ class BatchCreationConfig implements Serializable {
         recipients: TrackingDocumentRecipient]
 
     static constraints = {
-        name(maxSize:32)
+        name(maxSize:128)
         selectionQuery(nullable: true, maxSize:8000)
         postGenerationQuery(nullable: true, maxSize:8000)
         defaultReason(nullable: true, maxSize:255)
@@ -65,4 +65,5 @@ class BatchCreationConfig implements Serializable {
     	parentFormat(nullable: true)
         parentInitial(nullable: true, range:0..1)
     }
+
 }

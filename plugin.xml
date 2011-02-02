@@ -1,4 +1,4 @@
-<plugin name='ncs-tracking' version='0.2' grailsVersion='1.3.5 &gt; *'>
+<plugin name='ncs-tracking' version='0.3' grailsVersion='1.3.5 &gt; *'>
   <author>Aaron J. Zirbes</author>
   <authorEmail>ajz@umn.edu</authorEmail>
   <title>NCS Tracking Domain Classes</title>
@@ -8,10 +8,6 @@ to study participants, and recruitment materials
 </description>
   <documentation>http://grails.org/plugin/ncs-tracking</documentation>
   <resources>
-    <resource>BuildConfig</resource>
-    <resource>Config</resource>
-    <resource>DataSource</resource>
-    <resource>UrlMappings</resource>
     <resource>edu.umn.ncs.Batch</resource>
     <resource>edu.umn.ncs.BatchCreationConfig</resource>
     <resource>edu.umn.ncs.BatchCreationDocument</resource>
@@ -39,7 +35,7 @@ to study participants, and recruitment materials
     <resource>edu.umn.ncs.TrackingDocumentRecipient</resource>
   </resources>
   <dependencies>
-    <plugin name='ncsPeople' version='0.1' />
+    <plugin name='ncsPeople' version='0.1 &gt; *' />
   </dependencies>
   <behavior />
 </plugin>

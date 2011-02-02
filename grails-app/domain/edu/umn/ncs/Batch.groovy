@@ -30,7 +30,10 @@ class Batch implements Serializable {
     Batch master
 
     // this is for read only calculated fields
-    static transients = ['primaryBatchInstrument', 'primaryInstrument', 'pieces']
+    static transients = ['primaryBatchInstrument'
+        , 'primaryInstrument'
+        , 'pieces'
+        , 'subBatches']
 
     BatchInstrument getPrimaryBatchInstrument() {
         instruments.find{ it.isPrimary }
@@ -48,6 +51,19 @@ class Batch implements Serializable {
             return 0
         }
 		
+    }
+
+    Batch[] getSubBatches(){
+        def c = Batch.createCriteria()
+        def batchInstanceList = c.list{
+            and {
+                master {
+                    eq("id", id)
+                }
+                ne("id", id)
+            }
+        }
+        return batchInstanceList
     }
 
     // configuration used to generate this batch
