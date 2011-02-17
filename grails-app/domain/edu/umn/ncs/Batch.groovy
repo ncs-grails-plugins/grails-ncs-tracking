@@ -18,6 +18,8 @@ class Batch implements Serializable {
     Date addressAndMailingDate
     // date sent to UMN Printing Services
     Date printingServicesDate
+     // date called Campus Courier
+    Date calledCampusCourierDate
     // User that created this batch
     String batchRunBy
     // Application that created this batch
@@ -85,6 +87,7 @@ class Batch implements Serializable {
         mailDate(nullable:true)
         addressAndMailingDate(nullable:true)
         printingServicesDate(nullable:true)
+        calledCampusCourierDate(nullable:true)
         batchRunBy(maxSize:16)
         batchRunByWhat(maxSize:50)
         trackingDocumentSent()
