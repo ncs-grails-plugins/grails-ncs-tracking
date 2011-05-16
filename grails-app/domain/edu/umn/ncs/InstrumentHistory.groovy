@@ -2,6 +2,8 @@ package edu.umn.ncs
 
 class InstrumentHistory implements Serializable {
 
+	static auditable = true
+
 	Instrument instrument
 	BigDecimal itemVersion = 1.0
 	IsInitial isInitial

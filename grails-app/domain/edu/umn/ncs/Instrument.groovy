@@ -2,6 +2,8 @@ package edu.umn.ncs
 
 class Instrument implements Serializable {
 
+	static auditable = true
+
     String name
     String nickName
     Integer daysTillReminder

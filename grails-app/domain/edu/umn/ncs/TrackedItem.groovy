@@ -1,6 +1,9 @@
 package edu.umn.ncs
 
 class TrackedItem implements Serializable {
+
+	static auditable = true
+
     DwellingUnit dwellingUnit
     Household household
     Person person

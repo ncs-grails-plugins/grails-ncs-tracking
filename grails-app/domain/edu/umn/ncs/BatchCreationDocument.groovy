@@ -2,6 +2,8 @@ package edu.umn.ncs
 
 class BatchCreationDocument implements Serializable {
 
+	static auditable = true
+
     // This should be a URL format
     String documentLocation
     // This may not make sense in the new version

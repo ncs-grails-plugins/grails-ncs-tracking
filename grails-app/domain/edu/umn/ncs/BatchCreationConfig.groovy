@@ -2,6 +2,8 @@ package edu.umn.ncs
 
 class BatchCreationConfig implements Serializable {
 
+	static auditable = true
+
     Instrument instrument
     InstrumentFormat format
     BatchDirection direction

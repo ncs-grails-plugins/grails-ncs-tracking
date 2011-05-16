@@ -2,6 +2,8 @@ package edu.umn.ncs
 
 class InstrumentApproval implements Serializable {
 
+	static auditable = true
+
 	Date approvalDate
 	String approvedBy
 	InstrumentApprovalType approvalType
