@@ -43,6 +43,7 @@ class BatchCreationConfig implements Serializable {
     BatchDirection parentDirection
     InstrumentFormat parentFormat
     IsInitial parentInitial
+    Result parentResult
 	
     int batchReportsToPrint = 1
 	
@@ -66,6 +67,7 @@ class BatchCreationConfig implements Serializable {
     	parentDirection(nullable: true)
     	parentFormat(nullable: true)
         parentInitial(nullable: true, range:0..1)
+        parentResult(nullable: true)
     }
 
 }
