@@ -19,7 +19,7 @@ class TrackedItem implements Serializable {
 
     static belongsTo = [batch : Batch]
 
-    static hasMany = [ comments : TrackedItemComment ]
+    static hasMany = [ comments : TrackedItemComment, incentives: Incentive ]
 
     static constraints = {
         // Possible destinations.  This will increase
