@@ -11,7 +11,8 @@ class Incentive {
 	Integer checkNumber
 	Date checkDate
 	String pva
-	GiftCard giftCard
+	
+	static hasMany = [ giftCard: GiftCard ]
 		
 	String comments
 

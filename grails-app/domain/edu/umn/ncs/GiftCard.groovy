@@ -6,8 +6,10 @@ class GiftCard {
 	BigDecimal amount
 	String description
 	GiftCardType type		// VISA, Target, etc
+	Incentive incentive
 		
     static constraints = {
+    	incentive(nullable:true)
     	description(nullable:true)
     	amount(nullable:true)
     	receiptNumber(nullable:true)
