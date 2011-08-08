@@ -12,7 +12,7 @@ class Incentive {
 	Date checkDate
 	String pva
 	
-	static hasMany = [ giftCard: GiftCard ]
+	static hasMany = [ giftCards: GiftCard ]
 		
 	String comments
 
