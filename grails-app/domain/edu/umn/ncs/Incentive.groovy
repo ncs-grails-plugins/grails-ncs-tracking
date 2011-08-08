@@ -11,6 +11,7 @@ class Incentive {
 	Integer checkNumber
 	Date checkDate
 	String pva
+	GiftCard giftCard
 		
 	String comments
 
@@ -22,8 +23,6 @@ class Incentive {
 		}
 	}
 	
-	// static belongsTo = [ trackedItem : TrackedItem ]
-	
     static constraints = {
     	trackedItem(nullable:true)
 		type()
@@ -33,6 +32,7 @@ class Incentive {
 		checkGenerated(nullable:true)
 		checkNumber(nullable:true)
 		pva(nullable:true)
+		giftCard(nullable:true)
 		comments(nullable:true)
     }
 }
