@@ -2,38 +2,24 @@ package edu.umn.ncs
 
 class Incentive {
 	TrackedItem trackedItem
-	BigDecimal amount
 	Boolean accepted = true
-	IncentiveType type
-	 
-	Boolean paymentStarted
-	Boolean checkGenerated
-	Integer checkNumber
-	Date checkDate
-	String pva
-	
-	static hasMany = [ giftCards: GiftCard ]
-		
+	IncentiveType type		// i.e. Check, Gift Card, Kazoo
+	Study study
+	Date incentiveDate		
 	String comments
+	// String pva   // obselete
+	
+	static hasMany = [ giftCards: GiftCard, checks: IncentiveCheck ]
 
-	String toString() {
-		if (amount) {
-			"\$${amount} ${type}"
-		} else {
-			type
-		}
-	}
+	String toString() { type }
 	
     static constraints = {
     	trackedItem(nullable:true)
 		type()
-		amount(nullable:true)
 		accepted()
-		paymentStarted(nullable:true)
-		checkGenerated(nullable:true)
-		checkNumber(nullable:true)
-		pva(nullable:true)
-		giftCard(nullable:true)
+		incentiveDate()
+		study()
+		//pva(nullable:true)
 		comments(nullable:true)
     }
 }
