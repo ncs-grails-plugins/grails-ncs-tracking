@@ -1,10 +1,10 @@
 class NcsTrackingGrailsPlugin {
     // the plugin version
-    def version = "0.9"
+    def version = "1.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "1.3.5 > *"
     // the other plugins this plugin depends on
-    def dependsOn = [ ncsPeople : "0.1 > *", auditLogging : "0.5.4 > *" ]
+    def dependsOn = [ ncsPeople : "0.1 > *", auditLogging : "0.5.4 > *", ncsAppointment : "0.2 > *" ]
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
             "grails-app/views/error.gsp"
@@ -16,7 +16,7 @@ class NcsTrackingGrailsPlugin {
     def title = "NCS Tracking Domain Classes"
     def description = '''\\
 Provides domain classes necessary for tracking generated and incoming items
-to study participants, and recruitment materials
+to study participants, recruitment materials and incentives.
 '''
 
     // URL to the plugin's documentation
