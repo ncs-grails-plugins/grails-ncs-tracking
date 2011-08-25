@@ -8,13 +8,16 @@ class GiftCard {
 	GiftCardType type		// VISA, Target, etc
 	Incentive incentive
 	Boolean checkedOut = false
-	String checkedOutTo
-	Date checkedOutDate
+	String checkedOutToWhom		// i.e. interviewer
+	String checkedOutByWhom		// card scanning person
+	Date dateCheckedOut
 	Date dateCreated
 	Date lastUpdated
 	String userCreated
 	String userUpdated
 		
+	static hasMany = [ checkouts: GiftCardCheckout, checkins: GiftCardCheckin ]
+	
     static constraints = {
     	code(unique:true)
     	dateCreated(display:false)
@@ -26,7 +29,8 @@ class GiftCard {
     	amount(nullable:true)
     	receiptNumber(nullable:true)
     	type(nullable:true)
-    	checkedOutTo(nullable:true)
+    	checkedOutToWhom(nullable:true)
+    	checkedOutByWhom(nullable:true)
     	checkedOutDate(nullable:true)
     }
 }
