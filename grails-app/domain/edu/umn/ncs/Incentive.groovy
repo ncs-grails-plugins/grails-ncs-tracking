@@ -8,7 +8,7 @@ class Incentive {
 	Date incentiveDate		
 	String comments
 	// String pva   // obselete
-	Appointment appointment
+	//Appointment appointment
 	
 	static hasMany = [ giftCards: GiftCard, checks: IncentiveCheck ]
 
@@ -16,7 +16,7 @@ class Incentive {
 	
     static constraints = {
     	trackedItem(nullable:true)
-    	appointment(nullable:true)
+    	//appointment(nullable:true)
 		type()
 		accepted()
 		incentiveDate()
