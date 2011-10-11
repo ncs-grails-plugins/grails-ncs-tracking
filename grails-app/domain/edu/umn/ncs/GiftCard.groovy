@@ -31,6 +31,6 @@ class GiftCard {
     	type(nullable:true)
     	checkedOutToWhom(nullable:true)
     	checkedOutByWhom(nullable:true)
-    	checkedOutDate(nullable:true)
+    	dateCheckedOut(nullable:true)
     }
 }
