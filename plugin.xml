@@ -1,4 +1,4 @@
-<plugin name='ncs-tracking' version='1.0' grailsVersion='1.3.5 &gt; *'>
+<plugin name='ncs-tracking' version='2.0' grailsVersion='1.3.5 &gt; *'>
   <author>Aaron J. Zirbes</author>
   <authorEmail>ajz@umn.edu</authorEmail>
   <title>NCS Tracking Domain Classes</title>
@@ -20,13 +20,10 @@ to study participants, recruitment materials and incentives.
     <resource>edu.umn.ncs.BatchInstrument</resource>
     <resource>edu.umn.ncs.BatchQueue</resource>
     <resource>edu.umn.ncs.DataSetType</resource>
-    <resource>edu.umn.ncs.GiftCard</resource>
-    <resource>edu.umn.ncs.GiftCardCheckin</resource>
-    <resource>edu.umn.ncs.GiftCardCheckout</resource>
-    <resource>edu.umn.ncs.GiftCardCheckoutLimit</resource>
     <resource>edu.umn.ncs.GiftCardType</resource>
     <resource>edu.umn.ncs.Incentive</resource>
     <resource>edu.umn.ncs.IncentiveCheck</resource>
+    <resource>edu.umn.ncs.IncentiveTransactionLog</resource>
     <resource>edu.umn.ncs.IncentiveType</resource>
     <resource>edu.umn.ncs.Instrument</resource>
     <resource>edu.umn.ncs.InstrumentApproval</resource>
