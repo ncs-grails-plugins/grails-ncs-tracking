@@ -22,7 +22,6 @@ to study participants, recruitment materials and incentives.
     <resource>edu.umn.ncs.DataSetType</resource>
     <resource>edu.umn.ncs.GiftCardType</resource>
     <resource>edu.umn.ncs.Incentive</resource>
-    <resource>edu.umn.ncs.IncentiveCheck</resource>
     <resource>edu.umn.ncs.IncentiveTransactionLog</resource>
     <resource>edu.umn.ncs.IncentiveType</resource>
     <resource>edu.umn.ncs.Instrument</resource>
