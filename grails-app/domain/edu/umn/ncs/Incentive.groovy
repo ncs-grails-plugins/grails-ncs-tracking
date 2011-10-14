@@ -2,6 +2,7 @@ package edu.umn.ncs
 
 class Incentive {
 	TrackedItem trackedItem
+	Appointment appointment
 	Boolean accepted = true
 	String barcode
 	String receiptNumber
@@ -30,6 +31,7 @@ class Incentive {
 	
     static constraints = {
     	trackedItem(nullable:true)
+    	appointment(nullable:true)
 		type()
 		accepted()
 		incentiveDate()
