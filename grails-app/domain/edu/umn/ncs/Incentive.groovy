@@ -32,7 +32,7 @@ class Incentive {
     	trackedItem(nullable:true)
 		type()
 		accepted()
-		incentiveDate()
+		incentiveDate(nullable:true)
     	amount(nullable:true)
     	barcode(unique:true,nullable:true)
     	receiptNumber(nullable:true)
