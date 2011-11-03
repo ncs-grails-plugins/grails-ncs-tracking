@@ -41,6 +41,11 @@ class Incentive {
 	  incentive */
 	Boolean checkNumber
 	
+	/** Indicates the activation status of gift card
+	 type incentives */
+	Boolean activated = false
+	Date dateActivated
+	
 	/** If this is a check-out-able item (gift card), then
 	  this flags whether or not the incentive is checked
 	  out */
@@ -123,6 +128,8 @@ class Incentive {
     	amount(nullable:true)
     	barcode(unique:'type', nullable:true)
     	receiptNumber(nullable:true)
+		activated()
+		dateActivated(nullable:true)
 		paymentStarted(nullable:true)
         checkGenerated(nullable:true)
         checkNumber(nullable:true)
