@@ -65,7 +65,7 @@ class BatchCreationQueue implements Serializable {
         source(nullable:true)
     }
 
-	static mapping - {
+	static mapping = {
 		sort 'person'
 	}
 }

@@ -64,7 +64,7 @@ class IncentiveTransactionLog {
 	/** this mapping sets the default sort order
 	for this class to be ordered by type, and then
 	by barcode */
-	mapping = {
+	static mapping = {
 		sort 'transactionDate'
 	}
 }

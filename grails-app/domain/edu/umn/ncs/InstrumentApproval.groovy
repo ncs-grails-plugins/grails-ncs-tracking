@@ -67,7 +67,7 @@ class InstrumentApproval implements Serializable {
 
 	/** this static mapping sets the default sort order for this
 	domain class to be sorted by the 'approvalDate' attribute. */
-	static mapping - {
+	static mapping = {
 		sort 'approvalDate'
 	}
 }

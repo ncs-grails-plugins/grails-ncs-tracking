@@ -20,7 +20,6 @@ to study participants, recruitment materials and incentives.
     <resource>edu.umn.ncs.BatchInstrument</resource>
     <resource>edu.umn.ncs.BatchQueue</resource>
     <resource>edu.umn.ncs.DataSetType</resource>
-    <resource>edu.umn.ncs.GiftCardType</resource>
     <resource>edu.umn.ncs.Incentive</resource>
     <resource>edu.umn.ncs.IncentiveTransactionLog</resource>
     <resource>edu.umn.ncs.IncentiveType</resource>

@@ -19,6 +19,7 @@ class Incentive {
 	/** This boolean flags whether this incentive is in an
 	active status.  This is typically used for gift cards */
 	Boolean activated = false
+	Date dateActivated
 	/** This is the receipt number that the incentive was 
 	purchased with if available */
 	String receiptNumber
@@ -40,11 +41,6 @@ class Incentive {
 	/** This is the check number, if applicable for the
 	  incentive */
 	Boolean checkNumber
-	
-	/** Indicates the activation status of gift card
-	 type incentives */
-	Boolean activated = false
-	Date dateActivated
 	
 	/** If this is a check-out-able item (gift card), then
 	  this flags whether or not the incentive is checked
@@ -123,7 +119,6 @@ class Incentive {
     	trackedItem(nullable:true)
 		type()
 		accepted()
-		activated()
 		incentiveDate(nullable:true)
     	amount(nullable:true)
     	barcode(unique:'type', nullable:true)
@@ -146,7 +141,7 @@ class Incentive {
 	/** this mapping sets the default sort order
 	for this class to be ordered by type, and then
 	by barcode */
-	mapping = {
+	static mapping = {
 		sort type:'asc', barcode:'asc'
 	}
 }
