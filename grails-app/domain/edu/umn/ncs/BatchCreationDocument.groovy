@@ -57,6 +57,8 @@ class BatchCreationDocument implements Serializable {
         mergeSourceFile(nullable:true, maxSize:512)
     }
 
+	/** this static mapping sets the default sort order for this
+	domain class to be sorted by the 'documentLocation' attribute. */
 	static mapping = {
 		sort 'documentLocation'
 	}
