@@ -3,16 +3,16 @@ package edu.umn.ncs
 import org.codehaus.groovy.grails.plugins.orm.auditable.AuditLogEvent
 
 /** This class represents a result, or status applied to
-a TrackedItem instance. */
+a {@link TrackedItem} instance. */
 class ItemResult implements Serializable {
 
 	/** This flags this domain instance to audit all updates
 	and changes using the auditable plugin. */
 	static auditable = true
 
-	/** This is the result being tied to the TrackedItem */
+	/** This is the result being tied to the {@link TrackedItem} */
     Result result
-	/** The is the date that the TrackedItem earned the result it is being assigned. */
+	/** The is the date that the {@link TrackedItem} earned the result it is being assigned. */
     Date receivedDate = new Date()
 
 	// BEGIN PROVENANCE FIELDS
@@ -41,11 +41,14 @@ class ItemResult implements Serializable {
 	// END PROVENANCE FIELDS
 
 	/** This is the default string converter for this class.
-	It returns "${result} on ${receivedDate}" */
+	 It returns "${result} on ${receivedDate}"
+	 @see #result
+	 @see #receivedDate
+	 */
 	String toString() {
 		"${result} on ${receivedDate}"
 	}
-    
+
 	/** This onDelete trigger saves old tracked item information
 	to an auditLog instance so that all changes to this class
 	are transacted out */
@@ -72,8 +75,10 @@ class ItemResult implements Serializable {
 		}
 	}
 
-	/** This class belongs to a trackedItem, and has a
-	1:1 relationship */
+	/** This class belongs to a {@link TrackedItem} instance
+	that is linked via the trackedItem attribute , and has a
+	1:1 relationship.
+	@see #trackedItem */
     static belongsTo = [trackedItem : TrackedItem]
 
 	/** This static defines any non-standard constraints
@@ -83,7 +88,10 @@ class ItemResult implements Serializable {
 		<dd>optional (nullable)<dd>
 		<dt>lastUpdated</dt>
 		<dd>optional (nullable)<dd>
-	</dl> */
+	</dl>
+	@see #userCreated
+	@see #lastUpdated
+	*/
     static constraints = {
         result()
         receivedDate()

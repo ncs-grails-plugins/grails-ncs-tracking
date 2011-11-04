@@ -24,6 +24,15 @@ class BatchCreationDocument implements Serializable {
 	name of the merge source file used to put the merge
 	data into.  This the name of the CSV file. */
     String mergeSourceFile
+
+	/** Comments can be helpful */
+	String comment
+
+	/** The sort order for the merge data.
+	This is a map containing the sort parameters for 
+	the dataset in the format:
+	[column1:asc, column2:desc, column3:asc]  */
+	String sortOrder
     
 	/** This is the default string converter method for
 	this class.  It returns the 'documentLocation' attribute. */
@@ -55,6 +64,7 @@ class BatchCreationDocument implements Serializable {
     static constraints = {
         documentLocation(maxSize:512)
         mergeSourceFile(nullable:true, maxSize:512)
+		comment(nullable:ture, maxSize:2048)
     }
 
 	/** this static mapping sets the default sort order for this

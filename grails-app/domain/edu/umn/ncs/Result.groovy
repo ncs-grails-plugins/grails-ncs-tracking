@@ -14,32 +14,39 @@ class Result implements Serializable {
     InstrumentFormat format
 
 	/** This flag is used to turn off results by making them invalid */
-    boolean valid = false
+    Boolean valid = false
 
 	/** This flag marks whether or not this result makes the individual
 	ineligible for the study */
-    boolean ineligible = false
+    Boolean ineligible = false
 	/** This flag marks whether or not this result means that the
 	instrument needs to be resent */
-    boolean resend = false
+    Boolean resend = false
 	/** This flag marks whether or not that this result disqualifies
 	  the subject for something */
-    boolean disqualify = false
+    Boolean disqualify = false
 	/** This flag marks whether or not this result represents a refusal
 	on the subject's behalf */
-    boolean refused = false
+    Boolean refused = false
 	/** This flag marks whether or not a photo copy of the instrument
 	needs to be made for our records */
-    boolean photoCopy = false
+    Boolean photoCopy = false
 	/** This flag marks whether or not this result means that a 
 	successful contact with the primary party was made */
-    boolean requiresPrimaryContact = false
+    Boolean requiresPrimaryContact = false
 	/** This flag marks whether or not this result can be assigned to
 	phone call instruments */
-    boolean phoneCall = false
+    Boolean phoneCall = false
 	/** This flag marks whether or not this result will show up
 	as a "Finish Up" result in the call system */
-    boolean callSheet = false
+    Boolean callSheet = false
+
+	/** This is the default {@link String} converter for
+	this class.
+	@return		the name attribute
+	@see		#name name
+	*/
+	String toString() { name }
 	
 	/** This static defines any non-standard constraints
 	placed on attributes with this class.

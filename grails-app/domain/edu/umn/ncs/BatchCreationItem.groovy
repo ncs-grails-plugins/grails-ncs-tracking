@@ -17,6 +17,16 @@ class BatchCreationItem implements Serializable {
     InstrumentFormat format
 	/** This is the direction of the ancillary instrument */
     BatchDirection direction
+	/** This flag determines if this is an optional document,
+	  and if set to true, the selection criteria must have
+	  a matching toggle field.
+	  The toggle field is named as "use_${Instrument.nickName}", 
+	  and if the field is not null then the instrument is not generated.
+	  If the instrument is null, then the instrument will be generated as
+	  part of the bundle.
+	  @see Instrument#nickName
+	 */
+	Boolean optional = false
 
 	/** this defines whether this instrument is to be a
 	child, sister, or attachment of another instrument
@@ -27,8 +37,13 @@ class BatchCreationItem implements Serializable {
 	in the bundle */
     Instrument parentInstrument
 
-	/** this is the default String converter for this class.
-	This simply returns the 'instrument' attribute */
+	/** Comments can be helpful */
+	String comment
+
+	/** this is the default {@link String} converter for this class.
+	 This simply returns the {@link #instrument} attribute.
+	 @return {@link #instrument}
+	 */
     String toString() { instrument }
 
     /** This returns the instrument
@@ -79,6 +94,7 @@ class BatchCreationItem implements Serializable {
         direction()
         relation()
         parentInstrument()
+		comment(nullable:ture, maxSize:2048)
     }
 
 	/** this static mapping sets the default sort order for this
