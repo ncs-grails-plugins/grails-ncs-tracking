@@ -64,7 +64,7 @@ class BatchCreationDocument implements Serializable {
     static constraints = {
         documentLocation(maxSize:512)
         mergeSourceFile(nullable:true, maxSize:512)
-		comment(nullable:ture, maxSize:2048)
+		comment(nullable:true, maxSize:2048)
     }
 
 	/** this static mapping sets the default sort order for this
