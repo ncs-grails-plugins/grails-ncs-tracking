@@ -94,7 +94,7 @@ class BatchCreationItem implements Serializable {
         direction()
         relation()
         parentInstrument()
-		comment(nullable:ture, maxSize:2048)
+		comment(nullable:true, maxSize:2048)
     }
 
 	/** this static mapping sets the default sort order for this
