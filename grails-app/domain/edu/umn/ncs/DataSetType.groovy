@@ -21,6 +21,57 @@ class DataSetType implements Serializable {
 	and validated */
 	Boolean closureTested = false
 
+	static def validateSqlQuery(String sqlQuery) {
+		def passed = true
+		if (sqlQuery) {
+			if ( ! sqlQuery.contains(':batchId') ) {
+				passed = 'missingBatchIdParameter
+			}
+		}
+
+		return passed
+	}
+
+	static def validateClosure(String closure) {
+		def gs = new GroovyShell()
+		def emptySet = [ [itemId: 0], [itemId: 1] ]
+		def result = []
+		def compiledClosure
+		def passed = true
+
+		if (closure) {
+			// verify that it compiles as valid Groovy Code
+			try {
+				compiledClosure = gs.evaluate(closure)
+			} catch (ex) {
+				passed = "compileError"
+			}
+
+			// verify we can run it with an emptyset as a parameter
+			try {
+				result = compiledClosure(emptySet)
+			} catch (ex) {
+				passed = "noSignatureOfMethod"
+			}
+
+			// verify that our output is the same type as input
+			try {
+				assert result.class ==  emptySet.class
+			} catch (ex) {
+				passed = "invalidReturnType"
+			}
+
+			// verify that we didn't loose rows
+			try {
+				assert result.size() == emptySet.size()
+			} catch (ex) {
+				passed = "invalidReturnDataSetSize"
+			}
+		}
+
+		return passed
+	}
+
 	/** this is the field containing the sql query
 	 that adds the required fields to the dataset. It MUST take
 	 :batchId as a parameter, and return the additional fields.
@@ -50,8 +101,8 @@ class DataSetType implements Serializable {
     static constraints = {
         name()
         code(maxSize:16)
-		closure(nullable:true, maxSize: 8000)
-		sqlQuery(nullable:true, maxSize: 8000)
+		closure(nullable:true, maxSize: 8000, validator: validateClosure)
+		sqlQuery(nullable:true, maxSize: 8000, validator: validateSqlQuery)
     }
 
 	/** this static mapping sets the default sort order for this

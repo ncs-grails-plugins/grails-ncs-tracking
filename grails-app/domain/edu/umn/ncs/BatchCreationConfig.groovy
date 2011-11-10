@@ -223,6 +223,30 @@ class BatchCreationConfig implements Serializable {
 		recipients: TrackingDocumentRecipient]
 
 
+	static transients = [ 'requiredColumns' ]
+
+	def getRequiredColumns() {
+		def requiredColumns = [] as Set
+		def b = this
+		if (b.automaticSelection) {
+			if (b.usePerson)        { requiredColumns.add('person') }
+			if (b.useHousehold)     { requiredColumns.add('household') }
+			if (b.useDwellingUnit)  { requiredColumns.add('dwelling_unit') }
+			if (b.useParentItem)    { requiredColumns.add('parent_item') }
+			if (b.useExpiration)    { requiredColumns.add('expire_date') }
+			if (b.useStudyYear)     { requiredColumns.add('study_year') }
+
+			b.subItems.each { bi ->
+				if (bi.optional) {
+					requiredColumns.add('skip_' + bi.instrument.nickName)
+				}
+			}
+
+		}
+		requiredColumns
+	}
+
+
 	/** This contains all the contstraints for this domain class.
 	Non-default constraints for this class are as follows:
 	<dl>
