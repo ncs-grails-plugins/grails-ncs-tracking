@@ -21,7 +21,7 @@ class DataSetType implements Serializable {
 	and validated */
 	Boolean closureTested = false
 
-	static def validateSqlQuery(String sqlQuery) {
+	static def validateSqlQuery = { sqlQuery ->
 		def passed = true
 		if (sqlQuery) {
 			if ( ! sqlQuery.contains(':batchId') ) {
@@ -32,7 +32,7 @@ class DataSetType implements Serializable {
 		return passed
 	}
 
-	static def validateClosure(String closure) {
+	static def validateClosure = { closure ->
 		def gs = new GroovyShell()
 		def emptySet = [ [itemId: 0], [itemId: 1] ]
 		def result = []
