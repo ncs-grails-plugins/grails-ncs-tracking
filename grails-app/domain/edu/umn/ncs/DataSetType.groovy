@@ -25,7 +25,7 @@ class DataSetType implements Serializable {
 		def passed = true
 		if (sqlQuery) {
 			if ( ! sqlQuery.contains(':batchId') ) {
-				passed = 'missingBatchIdParameter
+				passed = 'missingBatchIdParameter'
 			}
 		}
 
