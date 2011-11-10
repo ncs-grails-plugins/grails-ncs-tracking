@@ -31,8 +31,8 @@ class BatchCreationDocument implements Serializable {
 	/** The sort order for the merge data.
 	This is a map containing the sort parameters for 
 	the dataset in the format:
-	[column1:'asc', column2:'desc', column3:'asc']  */
-	String sortOrder = "[itemId:'asc']"
+	"row.columname1" or "row.columnName1 + row.columnName2" */
+	String sortOrder = "row.itemId"
     
 	/** This is the default string converter method for
 	this class.  It returns the 'documentLocation' attribute. */
