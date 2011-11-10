@@ -55,16 +55,12 @@ class DataSetType implements Serializable {
 			}
 
 			// verify that our output is the same type as input
-			try {
-				assert result.class ==  emptySet.class
-			} catch (ex) {
+			if ( result.class != emptySet.class ) {
 				passed = "invalidReturnType"
 			}
 
 			// verify that we didn't loose rows
-			try {
-				assert result.size() == emptySet.size()
-			} catch (ex) {
+			if (result.size() != emptySet.size()) {
 				passed = "invalidReturnDataSetSize"
 			}
 		}
