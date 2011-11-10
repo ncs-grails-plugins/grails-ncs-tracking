@@ -47,7 +47,7 @@ class BatchCreationConfig implements Serializable {
 	String selectionQuery
 	/** This flags whether or not the selectionQuery has
 	been tested */
-	Boolean selectionQueryTested
+	Boolean selectionQueryTested = false
 	/** This is optional the query that runs after the the batch
 	has been generated to update any datasets that may need 
 	updating */
