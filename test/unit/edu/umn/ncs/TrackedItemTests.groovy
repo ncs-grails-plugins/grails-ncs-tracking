@@ -62,7 +62,7 @@ class TrackedItemTests extends GrailsUnitTestCase {
         super.tearDown()
     }
 
-    void testValidation() {
+    void testCustomValidator() {
 
 		mockDomain(TrackedItem)
         
@@ -77,4 +77,21 @@ class TrackedItemTests extends GrailsUnitTestCase {
         assert !ti3.validate()
 
     }
+
+	void testBarcode() {
+		def ti = new TrackedItem(person:p, batch:b)
+		ti.id = 1234
+
+		assert ti.barcode == "*1234*"
+	}
+
+	void testToString() {
+		def ti = new TrackedItem(person:p, batch:b)
+
+		assert ti.toString() != "I"
+
+		ti.id = 1234
+
+		assert ti.toString() == "I1234"
+	}
 }

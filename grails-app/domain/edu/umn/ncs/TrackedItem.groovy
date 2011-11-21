@@ -41,6 +41,14 @@ class TrackedItem implements Serializable {
 	documents */
 	String getBarcode() { '*' + id.toString() + '*' }
 
+	/** This is the default string converter for this class.
+		It will print out "I${id}".  */
+	String toString() {
+		// We're not actually using "I${id}"
+		if (id) { 'I' + id.toString() }
+		else { 'I(unsaved item, id = null)' }
+	}
+
 	/** Every TrackedItem belongs to a Batch, and this belongsTo
 	static map ties this to the Batch via the 'batch' attribute */
     static belongsTo = [ batch : Batch ]

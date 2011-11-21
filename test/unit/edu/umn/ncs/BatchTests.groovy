@@ -127,7 +127,7 @@ class BatchTests extends GrailsUnitTestCase {
     }
 	
 	// instument date must not be earlier than 7 days before date created
-	void testInstrumentDateNotEarlierThanSevenDaysbeforeDateCreated() {
+	void testInstrumentDateNotEarlierThanSevenDaysBeforeDateCreated() {
 		b = getTestBatch()
 
 		b.dateCreated = today
@@ -136,4 +136,29 @@ class BatchTests extends GrailsUnitTestCase {
 		b.instrumentDate = today - 8 
 		assert !b.validate()
     }
+
+	void testAddressAndMailingDateAfterDateCreated() {
+		assert true
+	}
+
+	void testAddressAndMailingDateBeforeMailDateAndPrintingServicesDate() {
+		assert true
+	}
+
+	void testPrintingServiceDateAfterDateCreated() {
+		assert true
+	}
+
+	void testPrintingServiceDateBeforeSentOutForMailing() {
+		assert true
+	}
+
+	void testCalledCampusCourierDateAfterDateCreated() {
+		assert true
+	}
+
+	void testCalledCampusCourierDateBeforeSentOutForMailing() {
+		assert true
+	}
+
 }

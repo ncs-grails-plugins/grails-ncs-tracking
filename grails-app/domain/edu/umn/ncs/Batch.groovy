@@ -148,8 +148,10 @@ class Batch implements Serializable {
 			(val == null)
 			|| (
 				(obj.properties['dateCreated'] <= val )
-				&& ( obj.properties['printingServicesDate'] == null || obj.properties['printingServicesDate'] <= val )
-				&& ( obj.properties['mailDate'] == null || val <= obj.properties['mailDate'] )
+				&& ( obj.properties['printingServicesDate'] == null 
+					|| obj.properties['printingServicesDate'] <= val )
+				&& ( obj.properties['mailDate'] == null 
+					|| val <= obj.properties['mailDate'] )
 				)
 			)
 	}
@@ -162,8 +164,10 @@ class Batch implements Serializable {
 			(val == null)
 			|| (
 				( obj.properties['dateCreated'] <= val )
-				&& ( obj.properties['addressAndMailingDate'] == null || val <= obj.properties['addressAndMailingDate'] )
-				&& ( obj.properties['mailDate'] == null || val <= obj.properties['mailDate'] )
+				&& ( obj.properties['addressAndMailingDate'] == null 
+					|| val <= obj.properties['addressAndMailingDate'] )
+				&& ( obj.properties['mailDate'] == null 
+					|| val <= obj.properties['mailDate'] )
 				)
 			)
 	}
