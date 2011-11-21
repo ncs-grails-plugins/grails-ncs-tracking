@@ -3,7 +3,7 @@ package edu.umn.ncs
 import grails.test.*
 
 class TrackedItemTests extends GrailsUnitTestCase {
-     Gender male
+    Gender male
     StreetAddress myAddress
     Person p
     Country us
@@ -21,7 +21,7 @@ class TrackedItemTests extends GrailsUnitTestCase {
 
     protected void setUp() {
         super.setUp()
-        
+
         appName = 'test'
         username = 'ajz'
         today = new Date()
@@ -29,20 +29,9 @@ class TrackedItemTests extends GrailsUnitTestCase {
         inf = new InstrumentFormat(name:'first class mail', groupName:'mail')
         ii = new IsInitial(name:'initial')
 
-        i = new Instrument(name:'High Intensity Questionnaire',
-                    nickName:'HiQ', study:s, requiresPrimaryContact:true)
-
-        b = new Batch(instrument:i, format:inf,
-                    direction: bd, instrumentDate: today, batchRunBy:username,
-                    batchRunByWhat: appName, trackingDocumentSent:false,
-                    creationConfig: bccHiQ)
-
-        bcc = new BatchCreationConfig(name:'HiQ Initial',
-                    instrument:i, format:inf, direction: bd,
-                    isInitial:ii, selectionQuery:'fake', active:true,
-                    oneBatchEventPerson:true)
-
-
+        b = new Batch(format:inf, direction: bd, 
+			instrumentDate: today, batchRunBy: username,
+			batchRunByWhat: appName, trackingDocumentSent:false)
 
         male = new Gender(name:'male')
 
@@ -75,6 +64,8 @@ class TrackedItemTests extends GrailsUnitTestCase {
 
     void testValidation() {
 
+		mockDomain(TrackedItem)
+        
         def ti1 = new TrackedItem(person: p, batch: b)
 
         def ti2 = new TrackedItem(dwellingUnit: du, batch: b)

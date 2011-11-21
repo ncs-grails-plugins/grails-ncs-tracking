@@ -59,6 +59,14 @@ class TrackedItem implements Serializable {
 	</dl> */
     static hasMany = [ comments : TrackedItemComment, incentives: Incentive ]
 
+	/** This is a custom validator that requires that at least one of
+		person, household or dwellingUnit be non-null */
+	static requirePersonUnitOrHouseholdValidator = { val, obj ->
+		return ( obj.properties['person']
+                    || obj.properties['household']
+                    || obj.properties['dwellingUnit'] )
+	}
+
 	/** This contains all the contstraints for this domain class.
 	Non-default constraints for this class are as follows:
 	<dl>
@@ -86,16 +94,10 @@ class TrackedItem implements Serializable {
         result(nullable:true, unique:true)
 
         dwellingUnit(nullable:true,
-            validator: { val, obj -> return ( obj.properties['person']
-                    || obj.properties['household']
-                    || obj.properties['dwellingUnit'] ) })
+            validator: requirePersonUnitOrHouseholdValidator )
         person(nullable:true,
-            validator: { val, obj -> return ( obj.properties['person']
-                    || obj.properties['household']
-                    || obj.properties['dwellingUnit'] ) })
+            validator: requirePersonUnitOrHouseholdValidator )
         household(nullable:true,
-            validator: { val, obj -> return ( obj.properties['person']
-                    || obj.properties['household']
-                    || obj.properties['dwellingUnit'] ) })
+            validator: requirePersonUnitOrHouseholdValidator )
     }
 }

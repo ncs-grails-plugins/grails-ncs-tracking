@@ -110,6 +110,64 @@ class Batch implements Serializable {
 	/** This is the date the batch was last updated */
     Date lastUpdated = null
 
+	//// custom validators
+
+	/** This is a custom validator that requires that the
+		maildate must be null, or be after date created */
+	static mailDateValidator = { val, obj ->
+		return (
+			(val == null) 
+			|| (obj.properties['dateCreated'] <= val )
+		)
+	}
+
+	/** This is a custom validator that requires that the
+		tracking return Date must be after mail date */
+	static afterMailDateValidator = { val, obj ->
+		return ( 
+			(val == null)
+			|| ( obj.properties['mailDate'] <= val )
+			)
+	}
+
+	/** This is a custom validator that requires that the
+		instument date must not be earlier than 7 days before date created */
+	static instrumentDateValidator = { val, obj ->
+		def sevenDaysBeforeDateCreated = obj.properties['dateCreated'] - 7
+		return (
+			(val == null)
+			|| ( sevenDaysBeforeDateCreated <= val )
+		)	
+	}
+
+	/** This is a custom validator that requires that the
+		A & M date must be after date created
+		and A & M date must be before mail date and after printing services date */
+	static addressAndMailingDateValidator = { val, obj ->
+		return (
+			(val == null)
+			|| (
+				(obj.properties['dateCreated'] <= val )
+				&& ( obj.properties['printingServicesDate'] == null || obj.properties['printingServicesDate'] <= val )
+				&& ( obj.properties['mailDate'] == null || val <= obj.properties['mailDate'] )
+				)
+			)
+	}
+
+	/** This is a custom validator that requires that the
+		Printing services must be after date created, but 
+		before mail date and A & M date */
+	static beforeSentOutForMailingValidator = { val, obj ->
+		return (
+			(val == null)
+			|| (
+				( obj.properties['dateCreated'] <= val )
+				&& ( obj.properties['addressAndMailingDate'] == null || val <= obj.properties['addressAndMailingDate'] )
+				&& ( obj.properties['mailDate'] == null || val <= obj.properties['mailDate'] )
+				)
+			)
+	}
+
 	/** This contains all the contstraints for this domain class.
 	Non-default constraints for this class are as follows:
 	<dl>
@@ -144,13 +202,13 @@ class Batch implements Serializable {
         format()
         direction()
         master(nullable:true)
-        trackingReturnDate(nullable:true)
-        minimumReturnDate(nullable:true)
-        instrumentDate(nullable:true)
-        mailDate(nullable:true)
-        addressAndMailingDate(nullable:true)
-        printingServicesDate(nullable:true)
-        calledCampusCourierDate(nullable:true)
+        mailDate(nullable:true, validator: mailDateValidator)
+        trackingReturnDate(nullable:true, validator: afterMailDateValidator)
+        minimumReturnDate(nullable:true, validator: afterMailDateValidator)
+        instrumentDate(nullable:true, validator: instrumentDateValidator)
+        addressAndMailingDate(nullable:true, validator: addressAndMailingDateValidator)
+        printingServicesDate(nullable:true, validator: beforeSentOutForMailingValidator)
+        calledCampusCourierDate(nullable:true, validator: beforeSentOutForMailingValidator)
         batchRunBy(maxSize:16)
         batchRunByWhat(maxSize:50)
         trackingDocumentSent()
