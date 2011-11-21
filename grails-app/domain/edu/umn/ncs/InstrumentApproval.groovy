@@ -31,7 +31,7 @@ class InstrumentApproval implements Serializable {
 	/** This is the default string converter for this class.
 	This returns: "${approvalType} approval by ${approvedBy} on ${approvalDate}"
 	*/
-	String toString = {
+	String toString() {
 		"${approvalType} approval by ${approvedBy} on ${approvalDate}"
 	}
 

@@ -25,6 +25,13 @@ class BatchCreationQueue implements Serializable {
 	it was required by the configuration. */
     Date expireDate
 
+	/** This is the default string converter for this class.
+		It returns: "BatchCreationQueue(${username},${source})[id=${id}]"
+		*/
+	String toString() {
+		"BatchCreationQueue(${username},${source})[id=${id}]"
+	}
+
 	/** This is the queue source for this item */
     BatchCreationQueueSource source
 

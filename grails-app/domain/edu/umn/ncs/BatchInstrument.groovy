@@ -26,6 +26,10 @@ class BatchInstrument implements Serializable {
 	a re-print will not suffice. */
 	boolean isResend = false
 
+	/** This is the default string converter for 
+	this class.  It returns "${batch}:${instrument}" */
+	String toString() { "${batch}:${instrument}" }
+
 	/** This static belongsTo map associates this
 	class with it's parent class, the Batch via
 	the batch property */
@@ -35,5 +39,6 @@ class BatchInstrument implements Serializable {
 	domain class to be sorted by the 'name' attribute. */
 	static mapping = {
 		sort 'isPrimary'
+		instrument unique:'batch'
 	}
 }

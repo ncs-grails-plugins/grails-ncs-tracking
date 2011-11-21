@@ -20,6 +20,13 @@ class BatchQueue implements Serializable {
 	to this class via the 'items' attribute */
     static hasMany  = [ items : TrackedItem ]
 
+	/** This is the default string converter for this class.
+		It returns: "BatchQueue(${username},${source})[id=${id}]"
+		*/
+	String toString() {
+		"BatchQueue(${username})[id=${id}]"
+	}
+
 	/** there are no non-default constraints for this class */
     static constraints = {
         username()

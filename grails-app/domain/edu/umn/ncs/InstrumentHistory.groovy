@@ -40,6 +40,13 @@ class InstrumentHistory implements Serializable {
 	document */
 	String comments
 
+	/** This is the default string converter for this class.
+		It returns: "${instrument} (${isInitial}), v${version}"
+		*/
+	String toString() {
+		"${instrument} (${isInitial}), v${version}"
+	}
+
 	// BEGIN PROVENANCE FIELDS
 	/**
 	This field is automatically assigned the date that this 
