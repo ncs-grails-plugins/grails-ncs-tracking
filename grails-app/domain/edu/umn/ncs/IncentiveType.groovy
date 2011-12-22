@@ -9,13 +9,11 @@ class IncentiveType {
 
 	/** this is the default String converter for this class.
 	This simply returns the 'name' attribute */
-    String toString() {
-        name
-    }
+    String toString() { name }
 
 	/** there are no non-default constraints for this class */
     static constraints = {
-        name()
+        name(maxSize:255)
     }
 
 	/** this static mapping sets the default sort order for this

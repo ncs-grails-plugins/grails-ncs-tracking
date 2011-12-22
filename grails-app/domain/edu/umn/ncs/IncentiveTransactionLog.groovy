@@ -5,7 +5,7 @@ check in/check out logs for an incentive */
 class IncentiveTransactionLog {
 
 	/** This is the date of the transaction */
-	Date transactionDate
+	Date transactionDate = new Date()
 
 	/** This flags whether or not this transaction is 
 	for a check out or a check in */
@@ -26,6 +26,9 @@ class IncentiveTransactionLog {
 	log entry to the Incentive that it belongs to
 	via the 'incentive' attribute.  */
 	static belongsTo = [ incentive: Incentive ]
+
+	/** Comment for the transaction if provided */
+	String comment
 
 	/** This is the default string converter for this class.
 	It returns "(checked|handed) (out|in) (to|by) ${checkedOutInToWhom} [by ${checkedOutInByWhom] on ${transactionDate}" */  
@@ -59,6 +62,7 @@ class IncentiveTransactionLog {
     	checkedOutInByWhom()
     	checkedOut(nullable:true)
     	givenToPerson(nullable:true)
+		comment(nullable:true, maxSize: 1000)
     }
 
 	/** this mapping sets the default sort order
