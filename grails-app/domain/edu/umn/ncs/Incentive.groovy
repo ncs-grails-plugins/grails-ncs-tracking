@@ -40,7 +40,7 @@ class Incentive {
 	Boolean checkGenerated
 	/** This is the check number, if applicable for the
 	  incentive */
-	Boolean checkNumber
+	Integer checkNumber
 	
 	/** If this is a check-out-able item (gift card), then
 	  this flags whether or not the incentive is checked

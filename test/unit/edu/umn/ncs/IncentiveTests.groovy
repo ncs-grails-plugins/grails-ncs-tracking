@@ -16,12 +16,12 @@ class IncentiveTests extends GrailsUnitTestCase {
     }
 
     void testInstantiation() {
-		assert true
+		assert false
     }
 
 
 	void testStringConverter() {
 
-		assert true
+		assert false
 	}
 }
