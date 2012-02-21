@@ -38,6 +38,11 @@ class BatchCreationDocument implements Serializable {
 	this class.  It returns the 'documentLocation' attribute. */
 	String toString() { documentLocation }
 
+	/** This flags whether or not the item can be pre-printed.
+	If the item can be pre-printed, it does not have a merge data
+	source. Pre-printed items are often booklets or brocures. */
+	Boolean prePrintable = false
+
 	/** this static belongsTo map associates this class
 	with the parent BatchCreationConfig that it belongs
 	to throught the batchCreationConfig attribute */
