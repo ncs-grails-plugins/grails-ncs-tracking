@@ -16,12 +16,15 @@ class IncentiveTests extends GrailsUnitTestCase {
     }
 
     void testInstantiation() {
-		assert false
+		def incentiveTypeInstance = new IncentiveType(name:'test')
+		def incentiveInstance = new Incentive(type:incentiveTypeInstance)
     }
 
 
 	void testStringConverter() {
+		def incentiveTypeInstance = new IncentiveType(name:'test')
+		def incentiveInstance = new Incentive(type:incentiveTypeInstance)
 
-		assert false
+		assert incentiveInstance.toString() == "test"
 	}
 }
