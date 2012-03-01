@@ -8,7 +8,8 @@ class NcsTrackingGrailsPlugin {
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
             "grails-app/conf/",
-            "grails-app/views/error.gsp"
+            "grails-app/views/error.gsp",
+			"lib/"
     ]
 
     def author = "Aaron J. Zirbes"
@@ -20,6 +21,6 @@ to study participants, recruitment materials and incentives.
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/ncs-tracking"
+    def documentation = "https://ci.ncs.umn.edu/job/ncs-tracking-plugin/javadoc/"
 
 }

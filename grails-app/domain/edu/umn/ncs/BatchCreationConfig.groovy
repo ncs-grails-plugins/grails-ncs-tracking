@@ -41,7 +41,7 @@ class BatchCreationConfig implements Serializable {
 	of what the config, a.k.a.&nbsp;"Document Bundle" */
 	String description
 
-	/** This is the assembly instructions available
+	/** This is an optional string assembly instructions available
 	to the person generating the batch.  It can include 
 	additional things to put in the batch or the like */
 	String extraInstructions
@@ -260,7 +260,7 @@ class BatchCreationConfig implements Serializable {
 		<dt>description</dt>
 		<dd>maximum length of 8000 characters</dd>
 		<dt>extraInstructions</dt>
-		<dd>maximum length of 8000 characters</dd>
+		<dd>optional (nullable), maximum length of 8000 characters</dd>
 		<dt>selectionQuery</dt>
 		<dd>optional (nullable), maximum length of 8000 characters</dd>
 		<dt>postGenerationQuery</dt>
@@ -299,7 +299,7 @@ class BatchCreationConfig implements Serializable {
 		parentResult(nullable: true)
 	}
 
-	/** this static mapping sets the default sort order for this
+	/** This static mapping sets the default sort order for this
 	domain class to be sorted by the 'name' attribute. */
 	static mapping = {
 		sort 'name'
