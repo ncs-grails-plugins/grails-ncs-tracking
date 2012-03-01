@@ -286,7 +286,7 @@ class BatchCreationConfig implements Serializable {
 	static constraints = {
 		name(maxSize:128)
 		description(maxSize:8000)
-		extraInstructions(maxSize:8000)
+		extraInstructions(nullable: true, maxSize:8000)
 		selectionQuery(nullable: true, maxSize:8000)
 		postGenerationQuery(nullable: true, maxSize:8000)
 		defaultReason(nullable: true, maxSize:255)
